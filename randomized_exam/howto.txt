@@ -1,0 +1,5 @@
+open command prompt
+
+>cd latex directory
+
+>for %i in (*) do pdflatex -jobname=%i main.tex
