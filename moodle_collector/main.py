@@ -9,13 +9,24 @@ from PIL import Image
 from shutil import copyfile
 
 
-files_dir = 'C:\\Users\\Korhan\\Desktop\\Dropbox\\asistanlık\\388\\Q4'
+files_dir = 'C:\\Users\\Korhan\\Desktop\\Dropbox\\asistanlık\\482\\Q3'
 
 pdf_files = list()
 image_files = list()
 undefined_files = list()
 
+numerator = 0
 
+# renaming
+# pdf merging requires uniques names
+# otherwise some files will be missed
+for folder in os.listdir(files_dir):
+    for files in os.listdir(files_dir + '\\' + folder):
+        os.rename(files_dir + '\\' + folder + '\\' + files, files_dir + '\\' + folder + '\\' + folder + str(numerator) + "." + files.split(".")[-1])
+        numerator = numerator + 1
+
+
+#detecting image files and getting their list
 for folder in os.listdir(files_dir):
     for files in os.listdir(files_dir + '\\' + folder):
         if ('.jpg' in files) or ('.JPG' in files) or ('.jpeg' in files) or ('.JPEG' in files) or ('.png' in files) or ('.PNG' in files):
@@ -30,7 +41,7 @@ for images in image_files:
     
 for folder in os.listdir(files_dir):
     for files in os.listdir(files_dir + '\\' + folder):
-        if '.pdf' in files:
+        if '.pdf' in files or '.PDF' in files:
             # pdf_files.append(files_dir + '\\' + folder + '\\' + files)
             filename = files_dir + '\\' + folder + '\\' + files
             copyfile(filename, files_dir + "\\1\\" + files)
