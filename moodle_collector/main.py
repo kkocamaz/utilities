@@ -9,7 +9,7 @@ from PIL import Image
 from shutil import copyfile
 
 
-files_dir = 'C:\\Users\\Korhan\\Desktop\\Dropbox\\asistanlık\\482\\Q3'
+files_dir = 'C:\\Users\\Korhan\\Desktop\\Dropbox\\asistanlık\\482-2\\final\\Q3'
 
 pdf_files = list()
 image_files = list()
